@@ -1,0 +1,117 @@
+:root {
+  --mobile: 23.45rem;
+  --desktop: 90rem;
+  --purple: #854cff;
+  --red: #ff5757;
+  --white: #fff;
+  --off-white: #f0f0f0;
+  --light-grey: #dbdbdb;
+  --smoke-grey: #716f6f;
+  --black: #141414;
+  --ff: "Poppins"  ;
+}
+
+*, :before, :after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--light-grey);
+  height: 100vh;
+  padding-inline: 1.25rem;
+  display: grid;
+}
+
+.container {
+  background-color: var(--white);
+  width: clamp(var(--mobile), 300vh, 30rem);
+  border-radius: 5% 5% 20%;
+  height: 100%;
+  max-height: 30rem;
+  margin: auto;
+  padding: 2rem;
+}
+
+.border {
+  border: 1px solid red;
+}
+
+.purple {
+  color: var(--purple);
+}
+
+.flex {
+  flex-direction: column;
+  width: 30%;
+  display: inline-flex;
+}
+
+.text-reg {
+  font-family: var(--ff);
+}
+
+.text-bold {
+  font-family: var(--ff);
+  font-weight: 700;
+}
+
+header {
+  margin: 1.25rem 0 3rem;
+}
+
+label {
+  color: var(--smoke-grey);
+  letter-spacing: .25rem;
+  text-transform: uppercase;
+  font-size: .85rem;
+}
+
+input {
+  border: .5px solid var(--light-grey);
+  color: var(--black);
+  border-radius: .55rem;
+  width: 70%;
+  padding: .5rem 0 .5rem .5rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+input::placeholder {
+  color: var(--black);
+}
+
+.img-container {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  position: relative;
+}
+
+@media (width >= 768px) {
+  .img-container {
+    margin-right: 0;
+  }
+}
+
+svg {
+  background-color: var(--purple);
+  border-radius: 50%;
+  margin-top: -20px;
+}
+
+main {
+  border-top: .5px solid var(--light-grey);
+}
+
+p {
+  font-size: 4rem;
+  font-weight: 800;
+}
+
+span {
+  margin-right: 1.25rem;
+}
+
+/*# sourceMappingURL=index.748ad148.css.map */

@@ -1,0 +1,123 @@
+:root{
+    --mobile: 23.45rem;
+    --desktop: 90rem;
+    /* colors */
+    --purple: hsl(259, 100%, 65%);
+    --red:hsl(0, 100%, 67%);
+    --white:#fff;
+    --off-white:hsl(0, 0%, 94%);
+    --light-grey:hsl(0, 0%, 86%);
+    --smoke-grey:hsl(0, 1%, 44%);
+    --black:hsl(0, 0%, 8%);
+
+    /* font family*/
+    --ff:"Poppins"
+    /* font-size */
+    
+}
+/* base */
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: var(--light-grey);
+    padding-inline: 1.25rem;
+    display: grid;
+    height: 100vh;
+
+    /* background-image: url("../design/mobile-design.jpg");
+    background-image: url("../design/desktop-completed.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+    
+}
+
+.container{
+
+    background-color: var(--white);
+    width: clamp(var(--mobile),300vh,30rem);
+    /* min-width: var(--mobile); */
+
+    max-height: 30rem;
+    height: 100%;
+    margin: auto;
+    border-radius: 5% 5% 20% 5%;
+    padding: 2rem;
+   
+}
+/* utility classes */
+.border{
+    border:solid 1px red;
+}
+
+.purple{
+    color: var(--purple);
+}
+.flex{
+    display: inline-flex;
+    flex-direction: column;
+    width: 30%;
+}
+.text-reg{
+    font-family: var(--ff);
+}
+.text-bold{
+    font-family: var(--ff);
+    font-weight: 700;
+}
+/* END UTILITY */
+header{
+    margin:1.25rem 0 3rem 0;
+}
+label{
+    color: var(--smoke-grey);
+    letter-spacing: .25rem;
+    text-transform: uppercase;
+    font-size: .85rem;
+}
+input{
+    border-radius: .55rem;
+    padding:.5rem 0 .5rem .5rem ;
+    border: .5px solid var(--light-grey);
+    color:var(--black);
+    font-weight: 800;
+    font-size: 1.25rem;
+    width: 70%;
+}
+input::placeholder{
+    color:var(--black); 
+}
+.img-container{
+  width: fit-content;
+  position: relative;
+  margin-bottom:3rem;
+  margin: auto;
+  
+}
+@media (min-width: 768px) {
+ .img-container{
+    margin-right: 0;
+ }
+}
+svg{
+    background-color: var(--purple);
+    border-radius:50%; 
+
+    margin-top: -20px;
+   
+
+}
+
+main{
+    border-top:.5px solid var(--light-grey);
+}
+p{
+    font-size: 4rem;
+    font-weight: 800;
+}
+span{
+    margin-right:1.25rem
+}
