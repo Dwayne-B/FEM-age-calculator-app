@@ -21,18 +21,27 @@ body {
   font-family: var(--ff);
   background-color: var(--light-grey);
   height: 100vh;
-  padding-inline: 1.25rem;
+  padding: 1.25rem;
   display: grid;
+  overflow: hidden;
 }
 
 .container {
   background-color: var(--white);
-  width: clamp(var(--mobile), 300vh, 30rem);
+  width: clamp(var(--mobile), 90vw, 32rem);
   border-radius: 5% 5% 20%;
   height: 100%;
-  max-height: 32rem;
   margin: auto;
   padding: 2rem;
+}
+
+small {
+  margin-top: .25rem;
+  font-size: .65rem;
+}
+
+.hide {
+  display: none;
 }
 
 .purple {

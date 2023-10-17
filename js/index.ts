@@ -119,7 +119,7 @@ const errorState = ()=>{
        // Create a new errorMsg for each input
     
     const msg = ['Must be a valid day', 'Must be a valid month', 'Must be in the past'];
-    const errorMsg = document.createElement('span');
+    const errorMsg = document.createElement('small');
     errorMsg.innerText  = `${msg[i]}`;
     console.log(msg[i]);
     cnt.appendChild(errorMsg);

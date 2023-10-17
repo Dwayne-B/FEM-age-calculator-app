@@ -24,10 +24,10 @@
 body{
     font-family: var(--ff);
     background-color: var(--light-grey);
-    padding-inline: 1.25rem;
+    padding: 1.25rem;
     display: grid;
     height: 100vh;
-
+    overflow: hidden;
     /* background-image: url("../design/mobile-design.jpg");
     background-image: url("../design/desktop-completed.jpg");
     background-position: center;
@@ -39,18 +39,24 @@ body{
 .container{
 
     background-color: var(--white);
-    width: clamp(var(--mobile),300vh,30rem);
+    width: clamp(var(--mobile),90vw,32rem);
     /* min-width: var(--mobile); */
 
-    max-height: 32rem;
+    /* max-height: 32rem; */
     height: 100%;
     margin: auto;
     border-radius: 5% 5% 20% 5%;
     padding: 2rem;
    
 }
+small{
+    margin-top: .25rem;
+    font-size: .65rem;
+}
 /* utility classes */
-
+.hide{
+    display: none;
+}
 
 .purple{
     color: var(--purple);
