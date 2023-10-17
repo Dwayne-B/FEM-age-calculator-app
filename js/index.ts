@@ -4,15 +4,17 @@ import {differenceInYears,differenceInCalendarMonths,differenceInCalendarDays,su
  get the DAY MONTH YEAR value from input 
  */
 
- const inputData = document.querySelectorAll('input[type=number]');
+ const inputData: NodeListOf<HTMLElement> = document.querySelectorAll('input[type=number]');
+ const label = document.querySelectorAll('label') ;
+ const dataContainer = document.querySelectorAll('.data-container');
  const myYearsText = document.querySelector('.my-years') as HTMLElement;
  const myMonthsText = document.querySelector('.my-months') as HTMLElement;
  const myDaysText = document.querySelector('.my-days') as HTMLElement;
 let currentYear  =new Date().getFullYear();
 
 let year = currentYear;
-let month = 1;
-let day = 1;
+let month;
+let day;
 
 // set max year
 const maxYear = document.querySelector('[data-max-year]');
@@ -22,17 +24,34 @@ maxYear?.setAttribute('max',new Date().getFullYear().toString())
        let target =  e.target as HTMLInputElement;
       if(target){
         if(target.name === 'day'){
+           if(parseInt(target.value) > 31 || parseInt(target.value) < 1){
+            console.log('error',target.value);
+
+            errorState();
+           }else{
+            console.log(target.value, currentYear);
             day=  parseInt(target.value) ;
+           }
         }else if(target.name === 'month'){
-            month=  parseInt(target.value) - 1;
+            if(parseInt(target.value) > 12 || parseInt(target.value) < 1){
+                errorState();
+               }else{
+                month=  parseInt(target.value) - 1;
+               }
+           
         }else if(target.name === 'year'){
-            year= parseInt(target.value);
+            if(parseInt(target.value) < 1200 || parseInt(target.value) > currentYear ){
+                errorState();
+               }else{
+                year= parseInt(target.value);
+               }
+          
         }
       }
 
 
         console.log(year, month, day);
-        if( year && month >= 0 && day >= 0){
+        if( year < currentYear && (month > 0 || month < 12) && (day > 0 || day < 31) ){
             await currentAge.getAge(year,month,day);  
             // display data to the DOM  
             myYearsText.innerText =currentAge.CalculatedAge.years.toString();
@@ -70,9 +89,51 @@ getAge(year,month ,day ){
 }
 
 // ADD ERROR Handling for input numbers larger than min max values of input
+const errorState = ()=>{
+//  .error-border{
+//     border-top:.5px solid var(--red);
+// }
+// .error-text{
+//     color: var(--red);
+// }
+// .error-msg::after{
+//     content:"";
+//     color: var(--red);
+
+// }
+
+    // Set the css to reflect errors 
+    Array.from(inputData).map((input )=>{
+        input.classList.add("error-border", "error-text" ,"error-msg");
+       // Create a new errorMsg for each input
+    const errorMsg = document.createElement('span');
+    errorMsg.innerText  = 'test';
+
+    // Append the new errorMsg to the current input
+    input.appendChild(errorMsg);
+
+
+    })
+    Array.from(dataContainer).map((cnt,i )=>{
+        cnt.classList.add( "error-text" );
+       // Create a new errorMsg for each input
+    
+    const msg = ['Must be a valid day', 'Must be a valid month', 'Must be in the past'];
+    const errorMsg = document.createElement('span');
+    errorMsg.innerText  = `${msg[i]}`;
+    console.log(msg[i]);
+    cnt.appendChild(errorMsg);
+
+    // Append the new errorMsg to the current input
 
 
 
+    })
+    Array.from(label).map((label)=>{
+        label.classList.add( "error-text");
+
+    })
 
 
-
+    console.log('error');
+}
